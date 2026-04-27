@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Cedarville+Cursive&family=Cookie&family=Italianno&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        font-family: "Oswald", sans-serif;
+      }
+      .background {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: center;
+        align-items: center;
+        position: relative;
+        -webkit-user-drag: none;
+        overflow: visible;
+        background-image: url("./Lab-Netflix.webp");
+        background-size: cover; /*  makes it fit */
+        background-position: center; /* keeps focus */
+        background-repeat: no-repeat;
+      }
+
+      .logo {
+        position: absolute;
+
+        top: 30px;
+        left: 30px;
+        width: 200px;
+        -webkit-user-drag: none;
+      }
+      .card {
+        position: absolute;
+        top: calc(60% + 60px); /* dead center + 60px down */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      .card h1 {
+        color: #f5f5f1;
+        font-size: 3.2rem;
+        font-weight: 600;
+        max-width: 800px;
+      }
+      .card input {
+        width: 320px;
+        padding: 14px 16px;
+        font-size: 1rem;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <img src="./Netflix_Logo_RGB.png" alt="logo" width="200px" class="logo" />
+      <div class="card">
+        <h1>Unlimited movies, shows and more</h1>
+        <input
+          type="email"
+          name="email"
+          id=""
+          placeholder="Enter email to register"
+        />
+      </div>
+    </div>
+  </body>
+</html>

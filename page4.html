@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top_gun</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+
+        background-image: url(./top_gun_background.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: "Bebas Neue", "Oswald", sans-serif;
+        position: relative;
+      }
+      .logo img {
+        -webkit-user-drag: none;
+      }
+      .poster img {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+        border-radius: 6px;
+        -webkit-user-drag: none;
+        width: 200px;
+        height: 300px;
+      }
+      .cinematic-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.45) 40%,
+            rgba(0, 0, 0, 0.2) 60%,
+            rgba(0, 0, 0, 0.75) 100%
+          ),
+          linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.1));
+        z-index: 0;
+      }
+      .logo {
+        position: relative;
+        z-index: 1;
+      }
+      .poster {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-right: 8vw;
+      }
+      .imdb {
+        margin-top: 1rem;
+
+        display: flex;
+        align-items: center; /* key fix */
+        gap: 0.5rem;
+
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.95rem;
+        line-height: 1; /* remove extra font height */
+
+        letter-spacing: 0.12em;
+        color: rgba(245, 245, 241, 0.85);
+      }
+      .imdb img {
+        width: 38px;
+        height: auto;
+
+        display: block; /* removes inline-image baseline issue */
+        transform: translateY(1px);
+      }
+      .text {
+        position: absolute;
+        left: 8vw;
+        top: 50%;
+        transform: translateY(-52%);
+        z-index: 2;
+        width: 42vw; /*key change*/
+        max-width: 620px; /* keeps it cinematic */
+      }
+      .text h1 {
+        font-family: "Bebas Neue", "Oswald", sans-serif;
+
+        font-size: clamp(3.2rem, 6.5vw, 6rem);
+        line-height: 0.95;
+
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+
+        margin: 0;
+        padding: 0;
+
+        color: #f5f5f1;
+        text-shadow: 0 12px 40px rgba(0, 0, 0, 0.85);
+      }
+      .description {
+        margin-top: 1.2rem;
+        max-width: 100%;
+
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(0.9rem, 1.1vw, 1rem);
+        line-height: 1.6;
+
+        color: rgba(245, 245, 241, 0.75);
+        opacity: 0.85;
+      }
+      .actions {
+        margin-top: 1.5rem;
+        display: flex;
+        gap: 1rem;
+      }
+
+      .watch-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+
+        background-color: #e50914; /* Netflix red */
+        color: #ffffff;
+
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+
+        padding: 0.8rem 1.6rem;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+
+        transition: background-color 0.2s ease, transform 0.15s ease;
+      }
+
+      .watch-btn:hover {
+        background-color: #f40612;
+        transform: translateY(-1px);
+      }
+
+      .watch-btn:active {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cinematic-overlay"></div>
+
+    <div class="logo">
+      <img src="./Netflix_Logo_RGB.png" width="200px" />
+
+      <div class="text">
+        <h1>Top Gun: Maverick</h1>
+        <div class="imdb">
+          <img src="./imdb_logo.png" alt="IMDB" />
+          <span>8.2/10 | Hollywod | English</span>
+        </div>
+        <p class="description">
+          Top Gun: Maverick (2022) follows Pete “Maverick” Mitchell as he
+          returns to the elite Navy fighter weapons school to train a new
+          generation of pilots for a near-impossible mission. Still pushing the
+          limits as a test pilot, Maverick must confront the ghosts of his past,
+          the legacy of Goose, and his uneasy relationship with Goose’s son,
+          Rooster. The film blends high-octane aerial combat with themes of
+          mentorship, sacrifice, and earning the right to fly on one’s own
+          terms.
+        </p>
+        <div class="actions">
+          <button class="watch-btn">▶ Watch Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="poster"><img src="./topgun_poster.jpg" " /></div>
+  </body>
+</html>
