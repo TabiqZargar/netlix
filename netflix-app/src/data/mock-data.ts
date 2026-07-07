@@ -1,7 +1,4 @@
-import { Movie, MovieDetail, CastMember, Video } from "@/types";
-
-const POSTER_BASE = "https://image.tmdb.org/t/p/w500";
-const BACKDROP_BASE = "https://image.tmdb.org/t/p/w1280";
+import { Movie, MovieDetail, TVShow, TVShowDetail, SeasonDetail, CastMember, Video, Genre, MediaItem } from "@/types";
 
 export const MOCK_MOVIES: Movie[] = [
   {
@@ -684,3 +681,211 @@ export function discoverMockMovies(
     total_results: filtered.length,
   };
 }
+
+export const MOCK_TV_SHOWS: TVShow[] = [
+  { id: 101, name: "Stranger Things", original_name: "Stranger Things", overview: "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.", poster_path: "/49WJfeN0m4y5sr2GS6FmJNdbP17.jpg", backdrop_path: "/56v2KjBlU4XaOv9DOi6kLlmMoj7.jpg", first_air_date: "2016-07-15", vote_average: 8.6, vote_count: 18000, genre_ids: [18, 9648, 10765], popularity: 95.2 },
+  { id: 102, name: "Breaking Bad", original_name: "Breaking Bad", overview: "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine to secure his family's future.", poster_path: "/ztkUQFLlC19CCMYHW773s9EYRhd.jpg", backdrop_path: "/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg", first_air_date: "2008-01-20", vote_average: 9.5, vote_count: 15000, genre_ids: [18, 80], popularity: 90.1 },
+  { id: 103, name: "Game of Thrones", original_name: "Game of Thrones", overview: "Nine noble families fight for control over the lands of Westeros, while a forgotten race returns after being dormant for millennia.", poster_path: "/1XS1oqLThT6NMd0G3RqB4p3E2j.jpg", backdrop_path: "/suopoADq0kQQYZz1iTMPgOm9Vb.jpg", first_air_date: "2011-04-17", vote_average: 8.9, vote_count: 23000, genre_ids: [18, 10765, 10759], popularity: 88.5 },
+  { id: 104, name: "The Crown", original_name: "The Crown", overview: "This gripping drama follows the political rivalries and romance of Queen Elizabeth II's reign and the events that shaped the second half of the twentieth century.", poster_path: "/1MvTtUaD1o1V7Yd3bXKxji0rN6.jpg", backdrop_path: "/kQlAysYTDKYM28V9T6XhQ2lVAF.jpg", first_air_date: "2016-11-04", vote_average: 8.7, vote_count: 8500, genre_ids: [18, 36], popularity: 82.3 },
+  { id: 105, name: "The Mandalorian", original_name: "The Mandalorian", overview: "After the fall of the Galactic Empire, lawlessness has spread throughout the galaxy. A lone gunfighter makes his way through the outer reaches, earning his keep as a bounty hunter.", poster_path: "/eU1i6eHXlzMOlEq0ku1Rzq7Y4wA.jpg", backdrop_path: "/f7umr4lMbB8U7T7utS4x7RuOTr.jpg", first_air_date: "2019-11-12", vote_average: 8.5, vote_count: 12000, genre_ids: [10759, 10765, 18], popularity: 85.7 },
+  { id: 106, name: "Squid Game", original_name: "오징어 게임", overview: "Hundreds of cash-strapped players accept a strange invitation to compete in children's games. Inside, a tempting prize awaits with deadly high stakes.", poster_path: "/dDlEmu3EZ0Pgg93K2SVNLCj1UxM.jpg", backdrop_path: "/oizU0Z5EWt2GIEBThKMlfHmOib.jpg", first_air_date: "2021-09-17", vote_average: 8.1, vote_count: 20000, genre_ids: [18, 10759, 80], popularity: 92.8 },
+  { id: 107, name: "The Last of Us", original_name: "The Last of Us", overview: "Twenty years after modern civilization has been destroyed, a hardened survivor is tasked with smuggling a 14-year-old girl who may be mankind's last hope.", poster_path: "/uKvVjHNqB1VmE2s9B3E2A5A5tF.jpg", backdrop_path: "/nkD1KSsW4QHnPmhx2W0gAsISY.jpg", first_air_date: "2023-01-15", vote_average: 8.8, vote_count: 9000, genre_ids: [18, 10759, 9648], popularity: 89.4 },
+  { id: 108, name: "Severance", original_name: "Severance", overview: "Mark leads a team of office workers whose memories have been surgically divided between their work and personal lives. When a mysterious colleague appears outside of work, it begins a journey to discover the truth about their jobs.", poster_path: "/1MvTtUaD1o1V7Yd3bXKxji0rN6.jpg", backdrop_path: "/kQlAysYTDKYM28V9T6XhQ2lVAF.jpg", first_air_date: "2022-02-18", vote_average: 8.7, vote_count: 6000, genre_ids: [18, 9648, 10765], popularity: 81.6 },
+  { id: 109, name: "Ted Lasso", original_name: "Ted Lasso", overview: "An American football coach is hired to manage a British soccer team despite having no experience. His unwavering optimism and unorthodox methods win over the skeptical team and fans.", poster_path: "/49WJfeN0m4y5sr2GS6FmJNdbP17.jpg", backdrop_path: "/56v2KjBlU4XaOv9DOi6kLlmMoj7.jpg", first_air_date: "2020-08-14", vote_average: 8.5, vote_count: 8000, genre_ids: [35, 18], popularity: 79.8 },
+  { id: 110, name: "The Office", original_name: "The Office", overview: "A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.", poster_path: "/qWnJ3KfqKQhY7mX5n0wKcVb9Tf.jpg", backdrop_path: "/k3IM8Rw33VqGzR4pIKMYMNzJMD.jpg", first_air_date: "2005-03-24", vote_average: 9.0, vote_count: 14000, genre_ids: [35], popularity: 78.2 },
+  { id: 111, name: "Black Mirror", original_name: "Black Mirror", overview: "An anthology series exploring a twisted, high-tech multiverse where humanity's greatest innovations and darkest instincts collide.", poster_path: "/49WJfeN0m4y5sr2GS6FmJNdbP17.jpg", backdrop_path: "/56v2KjBlU4XaOv9DOi6kLlmMoj7.jpg", first_air_date: "2011-12-04", vote_average: 8.4, vote_count: 10000, genre_ids: [9648, 10765, 18], popularity: 76.5 },
+  { id: 112, name: "Succession", original_name: "Succession", overview: "The Roy family, owners of the biggest media and entertainment company in the world, must navigate the treacherous waters of business and family.", poster_path: "/7v9i0r5c6q0bY0fQb0m0k0d0s0.jpg", backdrop_path: "/kQlAysYTDKYM28V9T6XhQ2lVAF.jpg", first_air_date: "2018-06-03", vote_average: 8.8, vote_count: 7500, genre_ids: [18], popularity: 84.3 },
+];
+
+export const MOCK_TV_DETAILS: Record<number, TVShowDetail> = {
+  101: {
+    ...MOCK_TV_SHOWS[0],
+    tagline: "The world is turning upside down.",
+    number_of_seasons: 4,
+    number_of_episodes: 34,
+    status: "Returning Series",
+    homepage: null,
+    seasons: [
+      { id: 1001, name: "Season 1", overview: "", season_number: 1, episode_count: 8, air_date: "2016-07-15", poster_path: null },
+      { id: 1002, name: "Season 2", overview: "", season_number: 2, episode_count: 9, air_date: "2017-10-27", poster_path: null },
+      { id: 1003, name: "Season 3", overview: "", season_number: 3, episode_count: 8, air_date: "2019-07-04", poster_path: null },
+      { id: 1004, name: "Season 4", overview: "", season_number: 4, episode_count: 9, air_date: "2022-05-27", poster_path: null },
+    ],
+    genres: [{ id: 18, name: "Drama" }, { id: 9648, name: "Mystery" }, { id: 10765, name: "Sci-Fi & Fantasy" }],
+  },
+  102: {
+    ...MOCK_TV_SHOWS[1],
+    tagline: "Change the equation.",
+    number_of_seasons: 5,
+    number_of_episodes: 62,
+    status: "Ended",
+    homepage: null,
+    seasons: [
+      { id: 2001, name: "Season 1", overview: "", season_number: 1, episode_count: 7, air_date: "2008-01-20", poster_path: null },
+      { id: 2002, name: "Season 2", overview: "", season_number: 2, episode_count: 13, air_date: "2009-03-08", poster_path: null },
+      { id: 2003, name: "Season 3", overview: "", season_number: 3, episode_count: 13, air_date: "2010-03-21", poster_path: null },
+      { id: 2004, name: "Season 4", overview: "", season_number: 4, episode_count: 13, air_date: "2011-07-17", poster_path: null },
+      { id: 2005, name: "Season 5", overview: "", season_number: 5, episode_count: 16, air_date: "2012-07-15", poster_path: null },
+    ],
+    genres: [{ id: 18, name: "Drama" }, { id: 80, name: "Crime" }],
+  },
+  103: {
+    ...MOCK_TV_SHOWS[2],
+    tagline: "Winter is coming.",
+    number_of_seasons: 8,
+    number_of_episodes: 73,
+    status: "Ended",
+    homepage: null,
+    seasons: [
+      { id: 3001, name: "Season 1", overview: "", season_number: 1, episode_count: 10, air_date: "2011-04-17", poster_path: null },
+      { id: 3002, name: "Season 2", overview: "", season_number: 2, episode_count: 10, air_date: "2012-04-01", poster_path: null },
+      { id: 3003, name: "Season 3", overview: "", season_number: 3, episode_count: 10, air_date: "2013-03-31", poster_path: null },
+    ],
+    genres: [{ id: 18, name: "Drama" }, { id: 10765, name: "Sci-Fi & Fantasy" }, { id: 10759, name: "Action & Adventure" }],
+  },
+};
+
+export const MOCK_TV_SEASONS: Record<string, SeasonDetail> = {
+  "101-1": {
+    id: 1001,
+    name: "Season 1",
+    overview: "When a young boy vanishes, a small town uncovers a mystery involving secret experiments and supernatural forces.",
+    season_number: 1,
+    episodes: [
+      { id: 10001, name: "Chapter One: The Vanishing of Will Byers", overview: "On his way home from a friend's house, young Will sees something terrifying. The next day, he has vanished.", episode_number: 1, season_number: 1, air_date: "2016-07-15", runtime: 55, vote_average: 8.2, still_path: null },
+      { id: 10002, name: "Chapter Two: The Weirdo on Maple Street", overview: "Mike, Dustin and Lucas search for Will and a mysterious girl appears.", episode_number: 2, season_number: 1, air_date: "2016-07-15", runtime: 55, vote_average: 8.1, still_path: null },
+      { id: 10003, name: "Chapter Three: Holly, Jolly", overview: "An increasingly concerned Nancy looks for Barb, and Joyce is convinced Will is trying to communicate with her.", episode_number: 3, season_number: 1, air_date: "2016-07-15", runtime: 52, vote_average: 8.3, still_path: null },
+      { id: 10004, name: "Chapter Four: The Body", overview: "Will's body is found in a quarry, but Joyce refuses to believe it's true.", episode_number: 4, season_number: 1, air_date: "2016-07-15", runtime: 50, vote_average: 8.5, still_path: null },
+      { id: 10005, name: "Chapter Five: The Flea and the Acrobat", overview: "Hopper is brought in to investigate, and the boys learn about the Upside Down.", episode_number: 5, season_number: 1, air_date: "2016-07-15", runtime: 53, vote_average: 8.4, still_path: null },
+    ],
+    air_date: "2016-07-15",
+    poster_path: null,
+  },
+  "102-1": {
+    id: 2001,
+    name: "Season 1",
+    overview: "Chemistry teacher Walter White turns to cooking meth after a terminal cancer diagnosis.",
+    season_number: 1,
+    episodes: [
+      { id: 20001, name: "Pilot", overview: "Walter White, a chemistry teacher, is diagnosed with terminal lung cancer and decides to start cooking meth.", episode_number: 1, season_number: 1, air_date: "2008-01-20", runtime: 58, vote_average: 8.5, still_path: null },
+      { id: 20002, name: "Cat's in the Bag...", overview: "Walt and Jesse try to dispose of two bodies in the RV.", episode_number: 2, season_number: 1, air_date: "2008-01-27", runtime: 48, vote_average: 8.3, still_path: null },
+      { id: 20003, name: "...And the Bag's in the River", overview: "Walt must decide whether to kill Krazy-8.", episode_number: 3, season_number: 1, air_date: "2008-02-10", runtime: 47, vote_average: 8.4, still_path: null },
+    ],
+    air_date: "2008-01-20",
+    poster_path: null,
+  },
+};
+
+export const MOCK_TV_CAST: Record<number, CastMember[]> = {
+  101: [
+    { id: 5001, name: "Millie Bobby Brown", character: "Eleven", profile_path: null, order: 0 },
+    { id: 5002, name: "Finn Wolfhard", character: "Mike Wheeler", profile_path: null, order: 1 },
+    { id: 5003, name: "David Harbour", character: "Jim Hopper", profile_path: null, order: 2 },
+    { id: 5004, name: "Winona Ryder", character: "Joyce Byers", profile_path: null, order: 3 },
+    { id: 5005, name: "Gaten Matarazzo", character: "Dustin Henderson", profile_path: null, order: 4 },
+  ],
+  102: [
+    { id: 6001, name: "Bryan Cranston", character: "Walter White", profile_path: null, order: 0 },
+    { id: 6002, name: "Aaron Paul", character: "Jesse Pinkman", profile_path: null, order: 1 },
+    { id: 6003, name: "Anna Gunn", character: "Skyler White", profile_path: null, order: 2 },
+  ],
+  103: [
+    { id: 7001, name: "Emilia Clarke", character: "Daenerys Targaryen", profile_path: null, order: 0 },
+    { id: 7002, name: "Kit Harington", character: "Jon Snow", profile_path: null, order: 1 },
+    { id: 7003, name: "Peter Dinklage", character: "Tyrion Lannister", profile_path: null, order: 2 },
+  ],
+};
+
+export const MOCK_TV_VIDEOS: Record<number, Video[]> = {
+  101: [{ id: "tv101_trailer", key: "b9EkMc79ZSU", name: "Stranger Things Season 1 Trailer", site: "YouTube", type: "Trailer" }],
+  102: [{ id: "tv102_trailer", key: "HhesaQXLuRY", name: "Breaking Bad Trailer", site: "YouTube", type: "Trailer" }],
+  103: [{ id: "tv103_trailer", key: "KPLWWI2H1Rc", name: "Game of Thrones Trailer", site: "YouTube", type: "Trailer" }],
+};
+
+export const MOVIE_GENRES: Genre[] = [
+  { id: 28, name: "Action" },
+  { id: 12, name: "Adventure" },
+  { id: 16, name: "Animation" },
+  { id: 35, name: "Comedy" },
+  { id: 80, name: "Crime" },
+  { id: 99, name: "Documentary" },
+  { id: 18, name: "Drama" },
+  { id: 10751, name: "Family" },
+  { id: 14, name: "Fantasy" },
+  { id: 36, name: "History" },
+  { id: 27, name: "Horror" },
+  { id: 10402, name: "Music" },
+  { id: 9648, name: "Mystery" },
+  { id: 10749, name: "Romance" },
+  { id: 878, name: "Science Fiction" },
+  { id: 10770, name: "TV Movie" },
+  { id: 53, name: "Thriller" },
+  { id: 10752, name: "War" },
+  { id: 37, name: "Western" },
+];
+
+export const TV_GENRES: Genre[] = [
+  { id: 10759, name: "Action & Adventure" },
+  { id: 16, name: "Animation" },
+  { id: 35, name: "Comedy" },
+  { id: 80, name: "Crime" },
+  { id: 99, name: "Documentary" },
+  { id: 18, name: "Drama" },
+  { id: 10751, name: "Family" },
+  { id: 10762, name: "Kids" },
+  { id: 9648, name: "Mystery" },
+  { id: 10763, name: "News" },
+  { id: 10764, name: "Reality" },
+  { id: 10765, name: "Sci-Fi & Fantasy" },
+  { id: 10766, name: "Soap" },
+  { id: 10767, name: "Talk" },
+  { id: 10768, name: "War & Politics" },
+  { id: 37, name: "Western" },
+];
+
+export function getMockSimilarTV(tvId: number): TVShow[] {
+  return MOCK_TV_SHOWS.filter((t) => t.id !== tvId).slice(0, 8);
+}
+
+export function searchMockMulti(query: string): MediaItem[] {
+  const lower = query.toLowerCase();
+  const movies = MOCK_MOVIES.filter(
+    (m) => m.title.toLowerCase().includes(lower) || m.overview.toLowerCase().includes(lower)
+  ).map((m) => ({ ...m, media_type: "movie" as const }));
+  const tv = MOCK_TV_SHOWS.filter(
+    (t) => t.name.toLowerCase().includes(lower) || t.overview.toLowerCase().includes(lower)
+  ).map((t) => ({ ...t, title: t.name, release_date: t.first_air_date, media_type: "tv" as const }));
+  return [...movies, ...tv] as MediaItem[];
+}
+
+export function discoverMockTV(
+  genreId?: number,
+  sortBy: string = "popularity.desc",
+  page: number = 1,
+  pageSize: number = 20
+): { results: TVShow[]; total_pages: number; total_results: number } {
+  let filtered = [...MOCK_TV_SHOWS];
+  if (genreId) {
+    filtered = filtered.filter((t) => t.genre_ids.includes(genreId));
+  }
+  if (sortBy === "vote_average.desc") {
+    filtered.sort((a, b) => b.vote_average - a.vote_average);
+  } else if (sortBy === "release_date.desc") {
+    filtered.sort((a, b) => new Date(b.first_air_date).getTime() - new Date(a.first_air_date).getTime());
+  } else if (sortBy === "release_date.asc") {
+    filtered.sort((a, b) => new Date(a.first_air_date).getTime() - new Date(b.first_air_date).getTime());
+  } else {
+    filtered.sort((a, b) => b.popularity - a.popularity);
+  }
+  const start = (page - 1) * pageSize;
+  return {
+    results: filtered.slice(start, start + pageSize),
+    total_pages: Math.ceil(filtered.length / pageSize),
+    total_results: filtered.length,
+  };
+}
+
+export const TRENDING_MEDIA: MediaItem[] = [
+  ...MOCK_MOVIES.slice(0, 8).map((m) => ({ ...m, media_type: "movie" as const })),
+  ...MOCK_TV_SHOWS.slice(0, 4).map((t) => ({ ...t, title: t.name, release_date: t.first_air_date, media_type: "tv" as const })),
+];
